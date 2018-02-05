@@ -66,8 +66,8 @@ def tfidf(train, test, mode="other", params_tfidf=None, n_components=128):
     pd_pca_train_tfidf = pd.DataFrame(pca_train_tfidf, columns=["tfidf"+str(n)+"gram"+str(x) for x in range(1, n_components+1)])
     pd_pca_test_tfidf = pd.DataFrame(pca_test_tfidf, columns=["tfidf"+str(n)+"gram"+str(x) for x in range(1, n_components+1)])
     #保存成csv
-    pd_pca_train_tfidf.to_csv("pd_pca_train_tfidf.csv")
-    pd_pca_test_tfidf.to_csv("pd_pca_test_tfidf.csv")
+#    pd_pca_train_tfidf.to_csv("pd_pca_train_tfidf.csv")
+#    pd_pca_test_tfidf.to_csv("pd_pca_test_tfidf.csv")
     return pd_pca_train_tfidf, pd_pca_test_tfidf
     
 ''' TF-IDF Vectorizer '''
@@ -97,12 +97,12 @@ def pca_compression(train_tfidf, n_components):
 #单元测试
 if __name__ == "__main__":
     ##### 导入数据 #####
-    start_time = time.time()
-    print("Load data start")
+#    start_time = time.time()
+#    print("Load data start")
     train = pd.read_csv("../input/jigsaw-toxic-comment-classification-challenge/train.csv")
     test = pd.read_csv("../input/jigsaw-toxic-comment-classification-challenge/test.csv")
-    print("Load data ok...", time.time()-start_time)
+#    print("Load data ok...", time.time()-start_time)
     ##### tfidf #####
-    print("tfidf start", time.time()-start_time)
-    tfidf(train, test, mode="other", params_tfidf={"ngram_range":(2,2)})
-    print("End...", time.time()-start_time)
+#    print("tfidf start", time.time()-start_time)
+    tfidf(train, test, mode="other", params_tfidf={"ngram_range":(2,2)}, n_components=128)
+#    print("End...", time.time()-start_time)
